@@ -1,0 +1,40 @@
+
+modLoader="javafml"
+
+loaderVersion="[43,)"
+license="All rights reserved"
+
+[[mods]]
+modId="ic2ccsupport"
+version="${file.jarVersion}"
+displayName="ComputerCraft Support for IC2C"
+logoFile="icon.png"
+credits="AyberkTheDragon (EngineerDragon)"
+
+authors="Ayberk Güngör"
+description='''IC2 CC Support
+
+This addon just adds computercraft computers ability to read the text of the monitors from ic2. Pretty much thats all.
+I literally have 0 modding knowledge.
+
+Features
+- Adds ability to read IC2 Monitors via computers
+That's pretty much all.
+
+Plans
+- Adding peripheral for energy storages like MFE, MFSU
+- Adding nuclear reactor peripheral to start and stop and gather info from nuclear reactors (I dont even know if this is possible without redstone)'
+'''
+
+[[dependencies.ic2ccsupport]]
+    modId="forge"
+    mandatory=true
+    versionRange="[43,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.ic2ccsupport]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.2,1.20)"
+    ordering="NONE"
+    side="BOTH"
