@@ -38,3 +38,15 @@ Plans
     versionRange="[1.19.2,1.20)"
     ordering="NONE"
     side="BOTH"
+[[dependencies.ic2ccsupport]]
+modId="ic2"
+mandatory=true
+versionRange="[1.19.2-2.0.0,)"
+ordering="AFTER"
+side="BOTH"
+[[dependencies.ic2ccsupport]]
+modId="computercraft"
+mandatory=true
+versionRange="[1.19.2-1.102.0,)"
+ordering="AFTER"
+side="BOTH"

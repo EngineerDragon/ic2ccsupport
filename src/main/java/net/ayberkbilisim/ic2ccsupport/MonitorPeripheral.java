@@ -5,60 +5,14 @@ import com.mojang.logging.LogUtils;
 import dan200.computercraft.api.lua.*;
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IDynamicPeripheral;
-import dan200.computercraft.api.peripheral.IPeripheralProvider;
-import ic2.api.network.buffer.IInputBuffer;
-import ic2.api.network.buffer.IOutputBuffer;
-import ic2.api.tiles.display.IDisplayInfo;
-import ic2.core.block.cables.mointor.MonitorBlock;
 import ic2.core.block.cables.mointor.MonitorDataManager;
 import ic2.core.block.cables.mointor.MonitorTileEntity;
-import ic2.core.inventory.handler.InventoryHandler;
-import ic2.core.item.tool.infos.ActivityCardItem;
-import ic2.core.networking.buffers.InputBuffer;
-import ic2.core.networking.buffers.OutputBuffer;
-import ic2.core.platform.player.friends.Friend;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.util.ByteProcessor;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.nbt.*;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import dan200.computercraft.api.peripheral.IPeripheral;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jline.utils.Log;
-import org.slf4j.Logger;
-
-import java.lang.reflect.Method;
-import java.util.Map;
 import java.util.Set;
 
 class MonitorPeripheral implements IDynamicPeripheral
@@ -129,7 +83,7 @@ class MonitorPeripheral implements IDynamicPeripheral
                         map.put(i+1,b.readDouble());
                     } else if (tg instanceof StringTag)
                     {
-                        map.put(i + 1,tg.toString());
+                        map.put(i + 1,tg.getAsString());
                     }
                     // Veeery lazy to do inventory card support so just use chest peripheral bruh
 
@@ -139,6 +93,6 @@ class MonitorPeripheral implements IDynamicPeripheral
 
 
         }
-        return MethodResult.of(null);
+        return MethodResult.of();
     }
 }
